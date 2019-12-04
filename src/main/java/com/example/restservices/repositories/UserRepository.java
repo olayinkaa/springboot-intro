@@ -8,12 +8,11 @@ import com.example.restservices.entities.User;
 
 
 //Repository
-
-
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 	
 	
+	User findByUsername(String username);
 	
 	
 
