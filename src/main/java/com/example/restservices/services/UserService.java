@@ -94,7 +94,7 @@ public class UserService {
 		Optional<User> optionalUser = userRepository.findById(id);
 		if(!optionalUser.isPresent())
 		{
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"User Not found in user Repository")
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"User Not found in user Repository");
 		}
 	}
 	
