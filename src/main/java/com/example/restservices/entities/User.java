@@ -1,9 +1,12 @@
 package com.example.restservices.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -40,7 +43,12 @@ public class User {
 	@Column(name="SSN",length=50,nullable=false,unique=true)
 	private String ssn;
 
+	
 
+	
+	@OneToMany(mappedBy="user")
+	private List<Order> orders;
+	
 	
 	
 //	No Argument Constructor(compulsory)
@@ -179,14 +187,37 @@ public class User {
 	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
+
+
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+
+	
+	
+	
+//	toString (optional require for bean logging)
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", firstname=" + firstname + ", lastname=" + lastname
+				+ ", email=" + email + ", role=" + role + ", ssn=" + ssn + ", orders=" + orders + "]";
+	}
 	
 
 	
 	
 	
 	
-	
-//	toString (optional require for bean logging)
+
 	
 	
 	
